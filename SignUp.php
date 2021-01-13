@@ -10,18 +10,7 @@
 
     </head>
     <body>
-        <header>
-            <div class="container">
-                <nav>
-                    <ul>
-                        <li><a href="Home.html">HOME</a></li>
-                        <li><a href="Contact.html">CONTACT</a></li>
-                        <li><a href="Restaurants.html">RESTAURANTS</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <?php include 'Header.php'; ?>
         <main>
             <div class="row no-gutters">
                 <div class="col-md-6 no-gutters">
@@ -34,12 +23,12 @@
                         <div class="container" id="container">
                             <div class="form-container sign-in-container">
                                 <form action="" class="forms">
-                                    <h1>Registration</h1>
+                                    <h1>Sign Up</h1>
                                     <input class="input input-field-register" required name="name" type="text" placeholder="First & Last Name"/><br>
                                     <input class="input input-field-register" required name="email" type="email" placeholder="Email address"/><br>
                                     <input class="input input-field-register" required name="password" type="password" placeholder="Password"/><br>
                                     <div class="wrapper">
-                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="validate(1)">Register</button>
+                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="validate(1)">Sign up</button>
                                     </div>
                                 </form>
                             </div>
@@ -48,20 +37,7 @@
                 </div>
             </div>
         </main>
-        <footer>
-            <div class="footer">
-                <a href="http://www.facebook.com">
-                <img src="img/sm1.png" alt="Facebook">
-                </a>
-                <a href="http://www.google.com">
-                <img src="img/sm2.png" alt="Google">
-                </a>
-                <a href="http://www.instagram.com">
-                <img src="img/sm3.png" alt="Instagram">
-                </a>
-                <p>© 2020 Hyla Çitaku, Ardit Byqmeti All rights reserved.</p>
-            </div>
-        </footer>
+        <?php include 'Footer.php'; ?>
         <script src="js/main.js"></script>
     </body>
 </html>

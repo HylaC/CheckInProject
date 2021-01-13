@@ -10,20 +10,7 @@
 
     </head>
     <body>
-        <header>
-            <div class="container">
-                <nav>
-                    <ul>
-                        <li><a href="Home.html">HOME</a></li>
-                        <li><a href="Contact.html">CONTACT</a></li>
-                        <li><a href="Restaurants.html">RESTAURANTS</a></li>
-                        <li><a href="Reservations.html">RESERVATIONS</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">LOG OUT</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <?php include 'Header.php'; ?>
         <main>
             <div class="row no-gutters">
                 <div class="col-md-6 no-gutters">
@@ -47,20 +34,7 @@
                 </div>
             </div>
         </main>
-        <footer>
-            <div class="footer">
-                <a href="http://www.facebook.com">
-                <img src="img/sm1.png" alt="Facebook">
-                </a>
-                <a href="http://www.google.com">
-                <img src="img/sm2.png" alt="Google">
-                </a>
-                <a href="http://www.instagram.com">
-                <img src="img/sm3.png" alt="Instagram">
-                </a>
-                <p>© 2020 Hyla Çitaku, Ardit Byqmeti All rights reserved.</p>
-            </div>
-        </footer>
+        <?php include 'Footer.php'; ?>
         <script src="js/main.js"></script>
     </body>
 </html>

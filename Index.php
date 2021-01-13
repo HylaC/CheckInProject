@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Log In</title>
+        <title>Sign In</title>
 
         <link rel="stylesheet" href="css/style.css"/>
 
@@ -10,18 +10,7 @@
 
     </head>
     <body>
-        <header>
-            <div class="container">
-                <nav>
-                    <ul>
-                        <li><a href="Home.html">HOME</a></li>
-                        <li><a href="Contact.html">CONTACT</a></li>
-                        <li><a href="Restaurants.html">RESTAURANTS</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <?php include 'Header.php'; ?>
         <main>
             <div class="row no-gutters">
                 <div class="col-md-6 no-gutters">
@@ -34,14 +23,14 @@
                         <div class="container" id="container">
                             <div class="form-container sign-in-container">
                                 <form action="" name="login" class="forms">
-                                    <h1>Log In</h1><br>
+                                    <h1>Sign In</h1><br>
                                     <input class="input input-field-login" required type="email" name="email" placeholder="Email address"/><br>
                                     <input class="input input-field-login" required type="password" name="password" placeholder="Password"/><br>
                                     <div class="wrapper">
-                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="validate(0)">Log In</button>
+                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="validate(0)">Sign In</button>
                                     </div><br>
                                     <p>Don't have an account? Click
-                                        <a href="Register.html" target="_blank" style="color:gold;">HERE</a> to register.
+                                        <a href="SignUp.php" target="_blank" style="color:gold;">HERE</a> to sign up.
                                     </p>
                                 </form>
                             </div>
@@ -50,20 +39,7 @@
                 </div>
             </div>
         </main>
-        <footer>
-            <div class="footer">
-                <a href="http://www.facebook.com">
-                <img src="img/sm1.png" alt="Facebook">
-                </a>
-                <a href="http://www.google.com">
-                <img src="img/sm2.png" alt="Google">
-                </a>
-                <a href="http://www.instagram.com">
-                <img src="img/sm3.png" alt="Instagram">
-                </a>
-                <p>© 2020 Hyla Çitaku, Ardit Byqmeti All rights reserved.</p>
-            </div>
-        </footer>
+        <?php include 'Footer.php'; ?>
         <script src="js/main.js"></script>
     </body>
 </html>
