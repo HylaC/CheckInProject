@@ -24,8 +24,8 @@
                             <div class="form-container sign-in-container">
                                 <form action="" name="login" class="forms">
                                     <h1>Sign In</h1><br>
-                                    <input class="input input-field-login" required type="email" name="email" placeholder="Email address"/><br>
-                                    <input class="input input-field-login" required type="password" name="password" placeholder="Password"/><br>
+                                    <input class="input input-field-login" type="email" name="email" placeholder="Email address"/><br>
+                                    <input class="input input-field-login" type="password" name="password" placeholder="Password"/><br>
                                     <div class="wrapper">
                                         <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="validate(0)">Sign In</button>
                                     </div><br>

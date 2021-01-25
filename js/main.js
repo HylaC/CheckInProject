@@ -1,29 +1,70 @@
-//validimi i te gjitha field-eve te formave
+//validimi i te gjitha fields te form-ave
 function validate(number){
     var inputList = document.getElementsByClassName("input");
-    if(number == 0){
-        //log in
-        if(inputList[0].value == "" || inputList[1].value == ""){
-            alert("Please fill in the informations!");
+    if(number === 0){
+        //Sign In form
+        if(inputList[0].value === ""){
+            alert("Please fill in the email address!");
+        }else if(inputList[1].value === ""){
+            alert("Please fill in the password!");
         }else{
             alert('Successfully logged in.')
         }
-    }else if(number == 1){
-        //register
-        if(inputList[0].value == "" || inputList[1].value == "" || inputList[2].value == ""){
-            alert("Please fill in the informations!");
+    }else if(number === 1){
+        //Sign Up form
+        if(inputList[0].value === ""){
+            alert("Please fill in first and last name!");
+        }else if(inputList[1].value === ""){
+            alert("Please fill in the email address!");
+        }else if(inputList[2].value === ""){
+            alert("Please fill in the password!");
         }else{
-            alert('Successfully registered.')
+            alert('Successfully registered.');
         }
-    }else if(number == 2){
-        //contact
-        if(inputList[0].value == "" || inputList[1].value == "" || inputList[2].value == "" || inputList[3].value == ""){
-            alert("Please fill in the informations!");
+    }else if(number === 2){
+        //Contact form
+        if(inputList[0].value === ""){
+            alert("Please fill in the firstname!");
+        }else if(inputList[1].value === ""){
+            alert("Please fill in the lastname!");
+        }else if(inputList[2].value === ""){
+            alert("Please fill in the email!");
+        }else if(inputList[3].value === ""){
+            alert("Please fill in the message!");
         }else{
             alert('Message successfully sent.')
         }
     }
+
+    //bej validimin se a eshte tipi i inputit mire me regex
 }
+
+// //validimi i te gjitha field-eve te formave
+// function validate(number){
+//     var inputList = document.getElementsByClassName("input");
+//     if(number == 0){
+//         //log in
+//         if(inputList[0].value == "" || inputList[1].value == ""){
+//             alert("Please fill in the informations!");
+//         }else{
+//             alert('Successfully logged in.')
+//         }
+//     }else if(number == 1){
+//         //register
+//         if(inputList[0].value == "" || inputList[1].value == "" || inputList[2].value == ""){
+//             alert("Please fill in the informations!");
+//         }else{
+//             alert('Successfully registered.')
+//         }
+//     }else if(number == 2){
+//         //contact
+//         if(inputList[0].value == "" || inputList[1].value == "" || inputList[2].value == "" || inputList[3].value == ""){
+//             alert("Please fill in the informations!");
+//         }else{
+//             alert('Message successfully sent.')
+//         }
+//     }
+// }
 
 
 

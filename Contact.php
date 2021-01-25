@@ -23,10 +23,10 @@
                         <div class="contact">
                             <p class="fillform">Ask us anything by filling the form below...</p>
                             <form class="forms" role="form">
-                                <div class="form-group"><input class="input input-field-contact" required type="text" name="firstname" placeholder="First Name"></div>
-                                <div class="form-group"><input class="input input-field-contact" required type="text" name="lastname" placeholder="Last Name"></div>
-                                <div class="form-group"><input class="input input-field-contact" required type="text" name="email" placeholder="Email"></div>
-                                <div class="form-group"><textarea class="input input-field-contact" required rows="7" cols="7" name="message" placeholder="Message"></textarea></div>
+                                <div class="form-group"><input class="input input-field-contact" type="text" name="firstname" placeholder="First Name"></div>
+                                <div class="form-group"><input class="input input-field-contact" type="text" name="lastname" placeholder="Last Name"></div>
+                                <div class="form-group"><input class="input input-field-contact" type="email" name="email" placeholder="Email"></div>
+                                <div class="form-group"><textarea class="input input-field-contact" rows="7" cols="7" name="message" placeholder="Message"></textarea></div>
                                 <div class="wrapper"><button type="submit" class="pagebutton" name="contactsubmit" onclick="validate(2)">Send Message</button></div>
                             </form>
                         </div>
