@@ -24,11 +24,14 @@
                             <div class="form-container sign-in-container">
                                 <form action="" class="forms">
                                     <h1>Sign Up</h1>
-                                    <input class="input input-field-register" name="name" type="text" placeholder="First & Last Name"/><br>
-                                    <input class="input input-field-register" name="email" type="email" placeholder="Email address"/><br>
-                                    <input class="input input-field-register" name="password" type="password" placeholder="Password"/><br>
+                                    <div><input class="input input-field-register" name="name" type="text" placeholder="First & Last Name"/></div>
+                                    <p id="nameError">Please fill in your first & last name!</p>
+                                    <div><input class="input input-field-register" name="email" type="email" placeholder="Email address"/></div>
+                                    <p id="emailError">Please fill in your email address!</p>
+                                    <div><input class="input input-field-register" name="password" type="password" placeholder="Password"/></div>
+                                    <p id="passError">Please fill in your password!</p>
                                     <div class="wrapper">
-                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="validate(1)">Sign up</button>
+                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="return validate(1)">Sign up</button>
                                     </div>
                                 </form>
                             </div>

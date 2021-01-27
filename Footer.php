@@ -9,6 +9,6 @@
         <a href="http://www.instagram.com" target = "blank">
             <img src="img/sm3.png" alt="Instagram">
         </a>
-        <p>© 2020 Hyla Çitaku, Ardit Byqmeti All rights reserved.</p>
+        <p>© 2020 Hyla Çitaku All rights reserved.</p>
     </div>
 </footer>

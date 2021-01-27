@@ -4,139 +4,104 @@ function validate(number){
     if(number === 0){
         //Sign In form
         if(inputList[0].value === ""){
-            alert("Please fill in the email address!");
-        }else if(inputList[1].value === ""){
-            alert("Please fill in the password!");
-        }else{
-            alert('Successfully logged in.')
+            document.getElementById("emailError").style.display = "block";
+            return false;
+        }
+        if(inputList[1].value === ""){
+            document.getElementById("emailError").innerHTML ="";
+            document.getElementById("passError").style.display = "block";
+            return false;
+        }
+        else{
+            alert('You\'re Successfully logged in.');
+            return true;
         }
     }else if(number === 1){
         //Sign Up form
         if(inputList[0].value === ""){
-            alert("Please fill in first and last name!");
-        }else if(inputList[1].value === ""){
-            alert("Please fill in the email address!");
-        }else if(inputList[2].value === ""){
-            alert("Please fill in the password!");
+            document.getElementById("nameError").style.display = "block";
+            return false;
+        }if(inputList[1].value === ""){
+            document.getElementById("nameError").innerHTML ="";
+            document.getElementById("emailError").style.display = "block";
+            return false;
+        } if(inputList[2].value === ""){
+            document.getElementById("nameError").innerHTML ="";
+            document.getElementById("emailError").innerHTML ="";
+            document.getElementById("passError").style.display = "block";
+            return false;
         }else{
-            alert('Successfully registered.');
+            alert('You\'re Successfully registered.');
+            return true;
         }
     }else if(number === 2){
         //Contact form
         if(inputList[0].value === ""){
-            alert("Please fill in the firstname!");
+            document.getElementById("nameError").style.display = "block";
+            return false;
         }else if(inputList[1].value === ""){
-            alert("Please fill in the lastname!");
+            document.getElementById("nameError").innerHTML ="";
+            document.getElementById("lastNameError").style.display = "block";
+            return false;
         }else if(inputList[2].value === ""){
-            alert("Please fill in the email!");
+            document.getElementById("nameError").innerHTML ="";
+            document.getElementById("lastNameError").innerHTML ="";
+            document.getElementById("emailError").style.display = "block";
+            return false;
         }else if(inputList[3].value === ""){
-            alert("Please fill in the message!");
+            document.getElementById("nameError").innerHTML ="";
+            document.getElementById("lastNameError").innerHTML ="";
+            document.getElementById("emailError").innerHTML ="";
+            document.getElementById("messageError").style.display = "block";
+            return false;
         }else{
-            alert('Message successfully sent.')
+            alert('Your Message is successfully sent.')
+            return true;
         }
     }
 
     //bej validimin se a eshte tipi i inputit mire me regex
 }
 
-// //validimi i te gjitha field-eve te formave
-// function validate(number){
-//     var inputList = document.getElementsByClassName("input");
-//     if(number == 0){
-//         //log in
-//         if(inputList[0].value == "" || inputList[1].value == ""){
-//             alert("Please fill in the informations!");
-//         }else{
-//             alert('Successfully logged in.')
-//         }
-//     }else if(number == 1){
-//         //register
-//         if(inputList[0].value == "" || inputList[1].value == "" || inputList[2].value == ""){
-//             alert("Please fill in the informations!");
-//         }else{
-//             alert('Successfully registered.')
-//         }
-//     }else if(number == 2){
-//         //contact
-//         if(inputList[0].value == "" || inputList[1].value == "" || inputList[2].value == "" || inputList[3].value == ""){
-//             alert("Please fill in the informations!");
-//         }else{
-//             alert('Message successfully sent.')
-//         }
-//     }
-// }
 
 
-
-//Ruajtja  e vlerave te inputit ne variabla objekte per Log In
-var elementListLogin = document.getElementsByClassName('input-field-login'); //krijimi i nje variable per listen e inputeve
+//Ruajtja  e vlerave te inputit ne variabla objekte per Sign In
+var elementListSignin = document.getElementsByClassName('input-field-login'); //krijimi i nje variable per listen e inputeve
 //shtimi i eventit per secilin element te input listes
-for(var i = 0; i < elementListLogin.length; i++){
-    elementListLogin[i].addEventListener('keyup', function(event){
+for(var i = 0; i < elementListSignin.length; i++){
+    elementListSignin[i].addEventListener('keyup', function(event){
         event.preventDefault();
 
-        loginObj = {
-            ...loginObj,
-            [event.target.name]: event.target.value
+        //Sign In objektit ne menyre dinamike ia vendosim vlerat specifike te input parametrave
+        signinObj = {
+            ...signinObj, //mere nje kopje te vlerave te deklaruara
+            [event.target.name] : event.target.value //apliko ndryshime tek vlerat e rejat .name e mer emrin 
+            //e atributit .value ja jep vleren
         }
-
-        // if(event.target.name == 'email'){
-        //     emailValue = event.target.value;
-        // }
-        // else if(event.target.name == 'password'){
-        //     passwordValue = event.target.value;
-        // }
-
-        //Ruajtja e variablave ne objekt
-        // loginObj = {
-        //     email: emailValue,
-        //     password: passwordValue
-        // }
     })
 }
 
-//Deklarimi i objektit per Login
-var loginObj = {
+//Deklarimi i objektit per Sign In dhe atributet e tij
+var signinObj = {
     email: "",
     password: ""
 }
-// //Deklarimi i variablave per input
-// var emailValue = "";
-// var passwordValue = "";
-// var nameValue = "";
-
 
 //Ruajtja  e vlerave te inputit ne variabla objekte per Register
-var elementListRegister = document.getElementsByClassName('input-field-register');
-for(var i = 0; i < elementListRegister.length; i++){
-    elementListRegister[i].addEventListener('keyup', function(event){
+var elementListSignup = document.getElementsByClassName('input-field-register');
+for(var i = 0; i < elementListSignup.length; i++){
+    elementListSignup[i].addEventListener('keyup', function(event){
         event.preventDefault();
 
-        registerObj = {
-            ...registerObj,
+        signupObj = {
+            ...signupObj,
             [event.target.name]: event.target.value
         }
-
-        // if(event.target.name == 'email'){
-        //     emailValue = event.target.value;
-        // }
-        // else if(event.target.name == 'password'){
-        //     passwordValue = event.target.value;
-        // }
-        // else if(event.target.name == 'name'){
-        //     nameValue = event.target.value;
-        // }
-
-        // registerObj = {
-        //     name: nameValue,
-        //     email: emailValue,
-        //     password: passwordValue
-        // }
     })
 }
 
-//Deklarimi i objektit per Register
-var registerObj = {
+//Deklarimi i objektit per Sign Up dhe atributet e tij
+var signupObj = {
     name: "",
     email: "",
     password: ""
@@ -155,7 +120,7 @@ for(var i = 0; i < elementListContact.length; i++){
     })
 }
 
-//Deklarimi i objektit per Contact
+//Deklarimi i objektit per Contact dhe atributet e tij
 var contactObj = {
     firstname: "",
     lastname: "",
@@ -163,24 +128,18 @@ var contactObj = {
     message:""
 }
 
-// SLIDER i thjesht
-var i = 0; // Start point
-var images = [];
-var time = 1000;
-// Image List
-images[0] = 'img/rest1.jpg';
-images[1] = 'img/rest2.jpg';
-images[2] = 'img/rest3.jpg';
-images[3] = 'img/rest4.jpg';
-images[4] = 'img/rest5.jpg';
-// Change Image
-function changeImg(){
-    document.slide.src = images[i];
-    if(i < images.length - 1){
-        i++;
-    } else {
-        i = 0;
-    }
-    setTimeout("changeImg()", time);
-}
-window.onload = changeImg;
+// SLIDER-i
+
+var divElements = document.getElementsByClassName('slider-content');
+var sliderIndex = 0;
+
+document.getElementsByClassName("slider")[0].addEventListener('click', function(event){
+    divElements[sliderIndex].classList.remove('active');
+    divElements[sliderIndex].classList.add('not-active');
+
+    sliderIndex++;
+    if(sliderIndex == divElements.length) sliderIndex = 0;
+
+    divElements[sliderIndex].classList.add('active');
+    divElements[sliderIndex].classList.remove('not-active');
+})

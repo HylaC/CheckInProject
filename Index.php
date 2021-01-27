@@ -22,12 +22,14 @@
                     <div class="rightside">
                         <div class="container" id="container">
                             <div class="form-container sign-in-container">
-                                <form action="" name="login" class="forms">
+                                <form action="" name="login" class="forms" method="post">
                                     <h1>Sign In</h1><br>
-                                    <input class="input input-field-login" type="email" name="email" placeholder="Email address"/><br>
-                                    <input class="input input-field-login" type="password" name="password" placeholder="Password"/><br>
+                                    <div><input class="input input-field-login" type="email" name="email" placeholder="Email address"/><br></div>
+                                    <p id="emailError">Please fill in your email address!</p>
+                                    <div><input class="input input-field-login" type="password" name="password" placeholder="Password"/><br></div>
+                                    <p id="passError">Please fill in your password!</p>
                                     <div class="wrapper">
-                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="validate(0)">Sign In</button>
+                                        <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="return validate(0)">Sign In</button>
                                     </div><br>
                                     <p>Don't have an account? Click
                                         <a href="SignUp.php" target="_blank" style="color:gold;">HERE</a> to sign up.

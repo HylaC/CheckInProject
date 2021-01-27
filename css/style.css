@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Home Page */
 header{
     background: #171616;
@@ -103,21 +111,15 @@ header a {
 }
 
 .forms input {
+    margin: 10px;
     border-radius: 20px;
     background-color: #eee;
     padding: 12px 15px;
     width: 100%;
 }
 
-.form-group{
-    height: 100%;
-}
-  
 .forms{
     padding: 20px;
-}
-
-.forms .form-group{
     padding-bottom: 15px;
 }
 
@@ -151,6 +153,18 @@ header a {
 
 .container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
+}
+
+/*Error message design */
+.forms #emailError,
+.forms #passError, 
+.forms #nameError,
+.forms #lastNameError,
+.forms #messageError{
+    width: 100%;
+    font-size: 15px;
+    color: #C62828;
+    display: none;
 }
 
 /* footer */
@@ -204,7 +218,6 @@ footer {
 /* restaurant page */
 .restaurant p{
     text-align: center;
-    margin:0;
     padding:22px;
     color: #fff;
     font-size:1.4vw;
@@ -214,3 +227,50 @@ footer {
     width: 100%;
     height: 100%;
 }
+
+ /*Slideri*/
+ 
+.slider {
+    position: relative;
+    font-size: 60px;
+    color: white;
+}
+
+/* .arrow-right{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%,-50%);
+}
+.arrow-left{
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    transform: translate(-50%,-50%);
+
+} */
+
+/* slider (active dhe non-active) */
+.active{
+    opacity: 1; /*elementin mundet me u pa i plote*/
+    transition: all 0.5s ease-in-out;
+}
+
+.not-active{
+    position: absolute;
+    opacity: 0; /*elementin nuk shihet*/
+    transition: all 0.5s ease-in-out;
+} 
+
+
+/*Responsivity*/
+/* @media only screen and (max-width:400px){
+    header{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header li{
+        padding: 0;
+    }
+} */
