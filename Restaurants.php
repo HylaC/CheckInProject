@@ -34,8 +34,6 @@
                                 <div class="slider-content not-active">
                                     <img src="img/photo4.jpg" alt=""/>
                                 </div>
-                                <!-- <div class="arrow-right">&rarr;</div>
-                                <div class="arrow-left">&larr;</div> -->
                             </div>
                             <div class="paragraph-restaurant">
                             <p><br>

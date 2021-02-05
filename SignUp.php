@@ -24,15 +24,18 @@
                             <div class="form-container sign-in-container">
                                 <form action="" class="forms">
                                     <h1>Sign Up</h1>
-                                    <div><input class="input input-field-register" name="name" type="text" placeholder="First & Last Name"/></div>
+                                    <div><input class="input input-field-register has-error has-success" id="name" name="name" type="text" placeholder="First & Last Name"/></div>
                                     <p id="nameError">Please fill in your first & last name!</p>
-                                    <div><input class="input input-field-register" name="email" type="email" placeholder="Email address"/></div>
+                                    <div><input class="input input-field-register" id="email" name="email" type="text" placeholder="Email address"/></div>
                                     <p id="emailError">Please fill in your email address!</p>
-                                    <div><input class="input input-field-register" name="password" type="password" placeholder="Password"/></div>
-                                    <p id="passError">Please fill in your password!</p>
+                                    <div><input class="input input-field-register" id="password" name="password" type="password" placeholder="Password"/></div>
+                                    <p id="passError">Please fill in your password!</p><br>
                                     <div class="wrapper">
                                         <button type="submit" id="submit" class="pagebutton input" name="submitted" onclick="return validate(1)">Sign up</button>
-                                    </div>
+                                    </div><br>
+                                    <p>Already have an account! Click
+                                        <a href="Index.php" target="_blank" style="color:gold;">HERE</a> to sign in.
+                                    </p>
                                 </form>
                             </div>
                         </div>

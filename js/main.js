@@ -59,10 +59,70 @@ function validate(number){
             return true;
         }
     }
-
-    //bej validimin se a eshte tipi i inputit mire me regex
 }
 
+//Validimi i tipit te inputit nese eshte string me regex
+document.getElementById('name').addEventListener('keyup', function(event){
+    var value = this.value;
+    ValidateName(value);
+
+    function ValidateName(name){
+        if (/^[A-Za-z\s]+$/.test(name))
+        {
+            var red = document.getElementById('name');
+            red.style.border = 'green 5px solid';
+            red.style.color = 'green';
+            return (true);
+        }else{
+            var red = document.getElementById('name');
+            red.style.border = 'red 5px solid';
+            red.style.color = 'red';
+            return (false);
+        }
+    }
+});
+
+//Validimi i tipit te inputit nese eshte email me regex
+document.getElementById('email').addEventListener('keyup', function(event){
+    var value = this.value;
+    ValidateEmail(value);
+
+    function ValidateEmail(mail){
+        if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail))
+        {
+            var red = document.getElementById('email');
+            red.style.border = 'green 5px solid';
+            red.style.color = 'green';
+            return (true);
+        }else{
+            var red = document.getElementById('email');
+            red.style.border = 'red 5px solid';
+            red.style.color = 'red';
+            return (false);
+        }
+    }
+});
+
+//Validimi i tipit te inputit nese eshte perfshine string, numra dhe karaktere me regex
+document.getElementById('password').addEventListener('keyup', function(event){
+    var value = this.value;
+    ValidatePassword(value);
+
+    function ValidatePassword(password){
+        if (/^[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password))
+        {
+            var red = document.getElementById('password');
+            red.style.border = 'green 5px solid';
+            red.style.color = 'green';
+            return (true);
+        }else{
+            var red = document.getElementById('password');
+            red.style.border = 'red 5px solid';
+            red.style.color = 'red';
+            return (false);
+        }
+    }
+});
 
 
 //Ruajtja  e vlerave te inputit ne variabla objekte per Sign In
