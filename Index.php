@@ -1,3 +1,6 @@
+<?php
+    require '.BusinessLogic/RegExValidation.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +25,7 @@
                     <div class="rightside">
                         <div class="container" id="container">
                             <div class="form-container sign-in-container">
-                                <form action="" name="login" class="forms" method="post">
+                                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" name="login" class="forms" method="POST"> <!--action -> Linku per file-in e php. Cili URL me u thirre pasi te behet submit ne rregull.-->
                                     <h1>Sign In</h1><br>
                                     <div><input class="input input-field-login" type="text" name="email" placeholder="Email address"/><br></div>
                                     <p id="emailError">Please fill in your email address!</p>

@@ -1,3 +1,6 @@
+<?php
+    require './BusinessLogic/UserController.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>

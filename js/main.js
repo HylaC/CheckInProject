@@ -88,7 +88,7 @@ document.getElementById('email').addEventListener('keyup', function(event){
     ValidateEmail(value);
 
     function ValidateEmail(mail){
-        if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail))
+        if (/^[A-Za-z\d\._]+@[A-Za-z\d\._]+\.[A-Za-z\d]{3,}+$/.test(mail))
         {
             var red = document.getElementById('email');
             red.style.border = 'green 5px solid';
