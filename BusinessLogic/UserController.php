@@ -1,48 +1,82 @@
 <?php
-   
-    include_once "UserMapper.php";
 
-    class UserController{
+    require_once 'UserMapper.php';
+    include_once 'SimpleUserClass.php';
+    include_once 'AdminUserClass.php';
+    session_start();
 
-        //Verify Sign Up
-        private $name = "";
-        private $email = "";
-        private $password = "";
+    if(isset($_POST['submitted'])) {
+        $obj = new SignInController($_POST);
+        $obj->verify();
+    }
+    
+    $emailPattern = "^[A-Za-z\d\._]+@[A-Za-z\d\._]+\.[A-Za-z\d]{3,}+$";
+    $passwordPattern = "^[a-zA-Z0-9!@#$%^&*]{6,16}$";
+    //$namePattern = '^[A-Za-z\s]+$';
 
-        public function _construct($fromData){
-            $this->name = $formData['name'];
-            $this->email = $formData['email'];
-            $this->password = $formData['password'];
+    class SignInController{
+
+        private $formData;
+        
+        function __construct($formData){
+            $this->formData = $formData;
         }
-        
-        $namePattern = '^[A-Za-z\s]+$';
-        $emailPattern = '^[A-Za-z\d\._]+@[A-Za-z\d\._]+\.[A-Za-z\d]{3,}+$';
-        $passwordPattern = '^[a-zA-Z0-9!@#$%^&*]{6,16}$';
-        
-        public function regexValidation($name, $email, $password){
-            if(preg_match(namePattern, $name) && preg_match(emailPattern, $email) && preg_match(passwordPattern, $password)){
+
+        //Verify Sign In form
+        public function verify(){
+ 
+            $email = $this->formData['email'];
+            $password = $this->formData['password'];
+              
+            if($this->regexValidation($email, $password)) 
+            {
+                if($this->verifySignIn($email, $password))
+                {
+                    return header('Location: ../Home.php');
+                }else{
+                   return header("Location: ../Index.php");
+                }
+            }else{
+                return header("Location: ../Index.php");
+            }
+        }
+
+        private function regexValidation($email, $password){
+            return true;
+            if(preg_match($emailPattern, $email) && preg_match($passwordPattern, $password)){
                 return true;
             }else{
                 return false;
             }
         }
 
-        public function registerUser(){
-            $user = new SimpleUser($this->name, $this->email, $this->password, 0);
-            //ketu thirre UserMapper me metoden insert
-            $mapper = new UserMapper();
-            $mapper->insertUser($user);
-            return header('Location: ./SignIn.php');
-        }
+        private function verifySignIn($email, $password){
 
-        if (isset($_POST['submitted'])) {
-            if (regexValidation($name, $email, $password)) {
-                return header('Location: ./SignUp.php');
-            }else if(registerUser($name, $email, $password)){
-                return header('Location: ./SignIn.php');
-            }else{
-                header("Location:./SignUp.php");
-            }
+            $mapper = new UserMapper();
+            
+            $user = $mapper->getUserByName($email);
+            
+            $passwordEncrypted = sha1($password);
+            //echo 'password: ' .$password;
+            //echo '<br/>passwordEncrypted: ' .$passwordEncrypted;
+            //echo '<br/>user: ' .$user['password'];
+
+            if ($user == null || count($user) == 0) 
+               return false;
+            else if ($passwordEncrypted == $user['password']) {
+                if ($user['role'] == 1) {
+                    $person = new AdminUser($user['userid'], $user['name'],$user['email'], $user['password'], $user['role']);
+                    $person->setSession();
+                }else {
+                    $person = new SimpleUser($user['userid'], $user['name'],$user['email'], $user['password'], $user['role'], "");
+                    $person->setSession();
+                }
+                return true;
+            }else return false;
         }
     }
-?>
+
+    // class SignUpController{
+
+    // }
+    ?>

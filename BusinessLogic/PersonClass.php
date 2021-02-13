@@ -2,13 +2,15 @@
 
     abstract class Person
     {
+        protected $userid;
         protected $name;
         protected $email;
         protected $password;
         protected $role;
 
-        function __construct($name, $email, $password, $role)
+        function __construct($userid, $name, $email, $password, $role)
         {
+            $this->userid = $userid;
             $this->name = $name;
             $this->email = $email;
             $this->password = $password;
@@ -17,10 +19,5 @@
 
         abstract protected function setSession();
         abstract protected function setCookie();
-
-        protected function getUsername()
-        {
-            return $this->name;
-        }
     }
 ?>

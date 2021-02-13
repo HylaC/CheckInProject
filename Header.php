@@ -8,6 +8,8 @@
                 <li><a href="Reservations.php">RESERVATIONS</a></li>
                 <li><a href="About.php">ABOUT</a></li>
                 <li><a href="SignOut.php">SIGN OUT</a></li>
+
+                <li><a href="Dashboard.php">DASHBOARD</a></li>
             </ul>
         </nav>
     </div>

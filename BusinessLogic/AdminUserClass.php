@@ -1,17 +1,17 @@
 <?php
     require_once 'PersonClass.php';
 
-    class SimpleUser extends Person
+    class AdminUser extends Person
     {
         public function __construct($userid, $name, $email, $password, $role)
         {
-            parent::__construct($userid, $name, $email, $password, $role); // dergimi i parametrave klases prind permes konstruktorit femije 
+            parent::__construct($userid, $name, $email, $password, $role);
         }
 
         public function setSession()
         {
-            $_SESSION["role"] = 0;
-            $_SESSION['roleName'] = "SimpleUser";
+            $_SESSION["role"] = 1;
+            $_SESSION['roleName'] = "Administrator";
         }
 
         public function setCookie()

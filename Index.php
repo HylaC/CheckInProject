@@ -22,7 +22,7 @@
                     <div class="rightside">
                         <div class="container" id="container">
                             <div class="form-container sign-in-container">
-                                <form action=".BusinessLogic/AuthenticationController.php" name="login" class="forms" method="POST"> <!--action -> Linku per php file-in te cilit ia dergojme formen pasi e bejeme submit.-->
+                                <form action="BusinessLogic/UserController.php" name="login" class="forms" method="POST"> <!--action -> Linku per php file-in te cilit ia dergojme (redirect) formen pasi e behet submit.-->
                                     <h1>Sign In</h1><br>
                                     <div><input class="input input-field-login" type="text" name="email" placeholder="Email address"/><br></div>
                                     <p id="emailError">Please fill in your email address!</p>
