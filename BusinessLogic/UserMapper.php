@@ -13,7 +13,7 @@
             $this->conn = $this->getConnection();
         }
     
-        public function getUserByName($email)
+        public function getUserByEmail($email)
         {
             $this->$query = "select * from users where email=:email";
             $statement = $this->conn->prepare($this->$query);
@@ -48,13 +48,13 @@
         {
         }
 
-        // //listimi i te gjithe usereve nga databaza
-        // public function getAllUsers()
-        // {
-        //     $query = "select * from users";
-        //     $statement = $this->conn->prepare($query);
-        //     return $users = $statement->fetchAll();
-        // }
+        //listimi i te gjithe usereve nga databaza
+        public function getAllUsers()
+        {
+            $query = "select * from users";
+            $statement = $this->conn->prepare($query);
+            return $users = $statement->fetchAll();
+        }
 
         // public function getUserByID($userId)
         // {

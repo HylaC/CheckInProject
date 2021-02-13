@@ -40,7 +40,7 @@
                                 and catering equipment, and we will be more than happy to organise your meeting – both in 
                                 our building, in a tent at the hotel's patio, as well as in any other place of your choosing.
                                 <br>What are you waiting for? 
-                                <br>Book your room by clicking <a href="#" style="color: gold">here.</a>
+                                <br>Book your room by clicking <a href="Rooms.php" style="color: gold">here.</a>
                             </p>
                       </div>
                     </div>

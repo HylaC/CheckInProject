@@ -1,3 +1,15 @@
+<?php
+include_once 'BusinessLogic/DataBaseConfig.php';
+include_once 'BusinessLogic/UserMapper.php';
+
+if (isset($_SESSION["role"]) && $_SESSION['role'] == '1') {
+    $mapper =  new UserMapper();
+    $userList = $mapper->getAllUsers();
+} else {
+    header("Location: Index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +22,7 @@
     </head>
 
     <body>
-        <?php include 'Header.php'?>
+        <?php include 'Header.php';?>
             <div class="dashboardpage">
                 <table>
                     <tr>
@@ -25,7 +37,7 @@
                         <td>email</td>
                         <td>role</td>
                         <td>
-                            <form action=".BusinessLogic/SignInController.php" class="dashboard-form" method="POST">
+                            <form action="BusinessLogic/UserController.php" class="dashboard-form" method="POST">
                                     <input type="hidden" name="id" placeholder="Password" value="id"/>
                                     <button type="submit" class="dashboard-button" name="submitted"></button>
                             </form>

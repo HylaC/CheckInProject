@@ -66,7 +66,7 @@ document.getElementById('name').addEventListener('keyup', function(event){
     ValidateName(value);
 
     function ValidateName(name){
-        if(/^[A-Za-z\s]+$/.test(name))
+        if(/^[A-Za-z\s]+$/.test(name)) //metoda .test bene vertetimin e RegEx-it
         {
             var red = document.getElementById('name');
             red.style.border = 'green 5px solid';
