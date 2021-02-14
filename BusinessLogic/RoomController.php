@@ -1,24 +1,24 @@
 <?php
     include_once 'DataBaseConfig.php';
     
-    class RoomController
+    class RoomController extends DatabasePDOConfiguration
     {
-        protected $formData;
-        
-        public function __construct($formData)
+        private $conn;
+
+        public function __construct()
         {
-            $this->formData = $formData;  
+            $this->conn = $this->getConnection();
         }
 
         public function seeRooms()
         {
-            $query = $this->formData->query('SELECT * FROM rooms');
+            $query = $this->conn->query('SELECT * FROM rooms');
 
             return $query->fetchAll();
         }
 
         public function addRooms($request){
-            $query = $this->formData->prepare('INSERT INTO rooms (name, size) VALUES (:name, :size)');
+            $query = $this->conn->prepare('INSERT INTO rooms (name, size) VALUES (:name, :size)');
             $query->bindParam(':name', $request['name']);
             $query->bindParam(':size', $request['size']);
             $query->execute();
@@ -27,7 +27,7 @@
         }
 
         public function editRooms($room_id){//e popullon formen me tdhana prej databazes
-            $query = $this->formData->prepare('SELECT * FROM rooms WHERE room_id = :room_id');
+            $query = $this->conn->prepare('SELECT * FROM rooms WHERE room_id = :room_id');
             $query->bindParam(':name', $request['name']);
             $query->bindParam(':size', $request['size']);
             $query->execute(['room_id' => $room_id]);
@@ -38,7 +38,7 @@
         public function updateRooms($room_id, $request)
         {
 
-            $query = $this->formData->prepare('UPDATE rooms SET name = :name, size = :size WHERE room_id = :room_id');
+            $query = $this->conn->prepare('UPDATE rooms SET name = :name, size = :size WHERE room_id = :room_id');
             $query->execute([
                 'name' => $request['name'],
                 'size' => $request['size'],
@@ -49,11 +49,10 @@
         }
         
         public function deleteRoom($room_id){
-                $query = $this->formData->prepare('DELETE FROM rooms WHERE room_id = :room_id');
+                $query = $this->conn->prepare('DELETE FROM rooms WHERE room_id = :room_id');
                 $query->execute(['room_id' => $room_id]);
         
                 return header('Location: ./Rooms.php');
-            
         }
     }
 ?>

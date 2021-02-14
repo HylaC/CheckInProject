@@ -63,6 +63,7 @@
                return false;
             if ($passwordEncrypted == $user['password']) {
                 if ($user['role'] == 1) {
+                    $_SESSION['role'] = user['role'];
                     $person = new AdminUser($user['userid'], $user['name'],$user['email'], $user['password'], $user['role']);
                     $person->setSession();
                 }else if($user['role'] == 0){
@@ -75,32 +76,30 @@
     }
 
     class SignUpController{
-
-        private $name = "";
-        private $email = "";
-        private $password = "";
+        private $formData;
         
         public function __construct($formData)
         {
-            $this->name = $formData['name'];
-            $this->email = $formData['email'];
-            $this->password = $formData['password'];
+            $this->formData = $formData;  
         }
 
         //Verify Sign Up form
         public function signupUser(){
-              
-            if($this->regexValidation($name, $email, $password)) 
-            {
+            $name = $this->formData['name'];
+            $email = $this->formData['email'];
+            $password = $this->formData['password'];
+             
+            // if($this->regexValidation($name, $email, $password)) 
+            // {
                 if($this->registerUser($name, $email, $password))
                 {
                     return header('Location: ../Index.php');
                 }else{
                     return header("Location: ../Signup.php");
                 }
-            }else{
-                return header("Location: ../Index.php");
-            }
+            // }else{
+            //     return header("Location: ../Index.php");
+            // }
         }
 
         private function regexValidation($name, $email, $password){
@@ -113,8 +112,9 @@
         }
 
         public function registerUser($name, $email, $password){
+
             //e bon insert userin e ri si simple user
-            $user = new SimpleUser($this->name, $this->email, $this->password, 0);
+            $user = new SimpleUser($name, $email, $password, 0);
             //ketu thirre UserMapper me metoden insert
             $mapper = new UserMapper();
             $mapper->insertUser($user);

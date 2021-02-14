@@ -3,9 +3,9 @@
 
     class AdminUser extends Person
     {
-        public function __construct($userid, $name, $email, $password, $role)
+        public function __construct($name, $email, $password, $role)
         {
-            parent::__construct($userid, $name, $email, $password, $role);
+            parent::__construct($name, $email, $password, $role);
         }
 
         public function setSession()

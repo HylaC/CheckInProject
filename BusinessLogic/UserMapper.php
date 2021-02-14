@@ -13,6 +13,22 @@
         {
             $this->conn = $this->getConnection();
         }
+
+        public function makeadmin($request){
+            $userid = $request['userid'];
+            $query = $this->conn->query('SELECT * FROM users WHERE userid = '.$userid);
+            $user = $query->fetch();
+
+            ($user['role'] == '1' ? $role = 0 : $role = 1);
+            try{
+                $query = $this->conn->prepare('UPDATE users SET role = :role WHERE userid = :userid');
+                $query->bindParam(':userid', $request['userid']);
+                $query->bindParam(':role', $role);
+                $query->execute();
+            }catch (Exception $e){
+
+            }
+        }
     
         public function getUserByEmail($email)
         {
@@ -48,22 +64,13 @@
         //listimi i te gjithe usereve nga databaza
         public function getAllUsers()
         {
-            $this->$query = "select * from users";
-            $statement = $this->conn->prepare($this->$query);
+            $query = "select * from users";
+            $statement = $this->conn->prepare($query);
             $statement->execute();
             $users = $statement->fetchAll();
             return $users;
         }
 
-        public function getUserByID($userId)
-        {
-            $this->$query = "select * from users where userId=:userid";
-            $statement = $this->conn->prepare($this->$query);
-            $statement->bindParam(":userid", $userId);
-            $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
-            return $result;
-        }
         public function deleteUser($userId)
         {
             $this->query = "delete from users where userId=:userid";
@@ -87,6 +94,14 @@
             return $statement;
         }
 
-        //function update user
+        // public function getUserByID($userId)
+        // {
+        //     $this->$query = "select * from users where userId=:userid";
+        //     $statement = $this->conn->prepare($this->$query);
+        //     $statement->bindParam(":userid", $userId);
+        //     $statement->execute();
+        //     $result = $statement->fetch(PDO::FETCH_ASSOC);
+        //     return $result;
+        // }
     }
 ?>

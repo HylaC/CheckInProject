@@ -2,15 +2,15 @@
 
     abstract class Person
     {
-        protected $userid;
+        //protected $userid;
         protected $name;
         protected $email;
         protected $password;
         protected $role;
 
-        function __construct($userid, $name, $email, $password, $role)
+        function __construct($name, $email, $password, $role)
         {
-            $this->userid = $userid;
+            // $this->userid = $userid;
             $this->name = $name;
             $this->email = $email;
             $this->password = $password;

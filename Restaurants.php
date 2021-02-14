@@ -1,10 +1,14 @@
+<?php
+
+ session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Restaurants</title>
 
         <link rel="stylesheet" href="css/style.css"/>
-
+ 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -46,8 +50,7 @@
                                 are just a few of the special dishes you'll find at your visit here.
                                 Let's not forget about drinks. One of our main workers here is
                                 a specialist in cocktails. We've also got a wide category of wines
-                                to choose from. What are you waiting for?<br><br>
-                                <a href="Reservations.php" style="color: gold">Book your room</a> and
+                                to choose from. What are you waiting for? Book your room and
                                 visit our restaurant while you're here.
                             </p>
                             </div>
@@ -58,5 +61,21 @@
         </main>
         <?php include 'Footer.php'; ?>
         <script src="js/main.js"></script>
+        <script>
+            // SLIDER-i
+            var divElements = document.getElementsByClassName('slider-content');
+            var sliderIndex = 0;
+
+            document.getElementsByClassName("slider")[0].addEventListener('click', function(event){
+                divElements[sliderIndex].classList.remove('active');
+                divElements[sliderIndex].classList.add('not-active');
+
+                sliderIndex++;
+                if(sliderIndex == divElements.length) sliderIndex = 0;
+
+                divElements[sliderIndex].classList.add('active');
+                divElements[sliderIndex].classList.remove('not-active');
+            })
+        </script>
     </body>
 </html>

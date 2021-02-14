@@ -22,7 +22,7 @@
                     <div class="rightside">
                         <div class="container" id="container">
                             <div class="form-container sign-in-container">
-                                <form action="BusinessLogic/UserController.php" class="forms">
+                                <form action="BusinessLogic/UserController.php" class="forms" method="POST">
                                     <h1>Sign Up</h1>
                                     <div><input class="input input-field-register has-error has-success" id="name" name="name" type="text" placeholder="First & Last Name"/></div>
                                     <p id="nameError">Please fill in your first & last name!</p>

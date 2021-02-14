@@ -1,9 +1,10 @@
 <?php
+session_start();
 require 'BusinessLogic/RoomController.php';
 
 $rooms = new RoomController;
 
-if(!$_SESSION['userid']){
+if($_SESSION['role']!=0){
     header('Location: ./Home.php');
 }
 ?>
@@ -13,7 +14,14 @@ if(!$_SESSION['userid']){
         <title>Reservations</title>
 
         <link rel="stylesheet" href="css/style.css"/>
+<style>
 
+ select{
+    border-radius: 20px;
+    padding: 8px;
+    width: 100%;
+}
+    </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
@@ -21,6 +29,7 @@ if(!$_SESSION['userid']){
         <?php include 'Header.php'; ?>
         <main>
             <div class="reservations">
+                <br/>
                 <select class="select" form="reservationform">
                     <?php foreach ($rooms->seeRooms() as $room): ?>
                         <option value="<?= $room['name']; ?>"><?= $room['name']; ?></option>

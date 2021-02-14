@@ -3,9 +3,9 @@
 
     class SimpleUser extends Person
     {
-        public function __construct($userid, $name, $email, $password, $role)
+        public function __construct($name, $email, $password, $role)
         {
-            parent::__construct($userid, $name, $email, $password, $role); // dergimi i parametrave klases prind permes konstruktorit femije 
+            parent::__construct($name, $email, $password, $role); // dergimi i parametrave klases prind permes konstruktorit femije 
         }
 
         //vendosja e session per ruajtjen e rolit te perdoruesit
