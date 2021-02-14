@@ -3,6 +3,7 @@
     require_once 'UserMapper.php';
     include_once 'SimpleUserClass.php';
     include_once 'AdminUserClass.php';
+    include_once 'DataBaseConfig.php';
 
     session_start(); //me fillu me rujt sesionin
 
@@ -20,9 +21,16 @@
 
         private $formData;
         
-        function __construct($formData){
-            $this->formData = $formData;
+        public function __construct($formData)
+        {
+            $this->formData = $formData;  
         }
+
+        // // qetu munet me kon te L:
+        // public function __construct()
+        // {
+        //     $this->formData = new DatabasePDOConfiguration;
+        // }
 
         //Verify Sign In form
         public function verify(){
@@ -36,7 +44,7 @@
             }
             else if($this->verifySignIn($email, $password))
             {
-                return header('Location: ../Home.php');
+                return header('Location: ../Home.php');// pasi useri te bohet sign in e bon redirect ne web faqen me url Home.php
             }
             else{
                return header("Location: ../Index.php");
@@ -77,11 +85,11 @@
 
         private $formData;
         
-        function __construct($formData){
+        public function __construct($formData){
             $this->formData = $formData;
         }
 
-        //Verify Sign In form
+        //Verify Sign Up form
         public function signupUser(){
             
             $name = $this->formData['name'];
@@ -104,10 +112,6 @@
 
         private function regexValidation($name, $email, $password){
 
-            // $name = $this->formData['name'];
-            // $email = $this->formData['email'];
-            // $password = $this->formData['password'];
-
             //metoda preg_match bene vertetimin e RegEx-it
             if(preg_match("/^[A-Za-z\s]+$/", $name) && preg_match("/^[A-Za-z\d\._]+@[A-Za-z\d\._]+\.[A-Za-z\d]{3,}+$/", $email) && preg_match("/^[a-zA-Z0-9!@#$%^&*]{6,16}$/", $password)){
                 return true;
@@ -117,6 +121,7 @@
         }
 
         public function registerUser($name, $email, $password){
+            //e bon insert userin e ri si simple user
             $user = new SimpleUser($this->name, $this->email, $this->password, 0);
             //ketu thirre UserMapper me metoden insert
             $mapper = new UserMapper();

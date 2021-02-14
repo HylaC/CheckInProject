@@ -1,15 +1,3 @@
-<?php
-include_once 'BusinessLogic/DataBaseConfig.php';
-include_once 'BusinessLogic/UserMapper.php';
-
-if (isset($_SESSION["role"]) && $_SESSION['role'] == '1') {
-    $mapper =  new UserMapper();
-    $userList = $mapper->getAllUsers();
-} else {
-    header("Location: Index.php");
-}
-
-?>
 <!DOCTYPE html>
 <html>
     <head>

@@ -21,7 +21,7 @@
             setcookie("name", $this->getName(), time() + 2 * 24 * 60 * 60);
         }
 
-        public function getUserId()
+        public function getUserid()
         {
             return $this->userid;
         }

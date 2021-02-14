@@ -23,9 +23,9 @@
             return $result;
         }
     
-        public function insertUser($user)
+        public function insertUser(\SimpleUser $user)
         {
-            $this->$query = "INSERT INTO users (name, email, password, role) VALUES (:name, :email, :password, :role)";
+            $this->$query = "insert into users (name, email, password, role) values (:name, :email, :password, :role)";
             $statement = $this->conn->prepare($this->$query);
 
             $name = $user->getName();
@@ -44,26 +44,47 @@
             $statement->execute();
         }
     
-        public function deleteUser($userId)
-        {
-        }
-
         //listimi i te gjithe usereve nga databaza
         public function getAllUsers()
         {
-            $query = "select * from users";
-            $statement = $this->conn->prepare($query);
+            $this->$query = "select * from users";
+            $statement = $this->conn->prepare($this->$query);
+            $statement->execute();
             return $users = $statement->fetchAll();
         }
 
-        // public function getUserByID($userId)
-        // {
-        //     $this->$query = "select * from users where userid=:id";
-        //     $statement = $this->conn->prepare($this->$query);
-        //     $statement->bindParam(":id", $userId);
-        //     $statement->execute();
-        //     $result = $statement->fetch(PDO::FETCH_ASSOC);
-        //     return $result;
-        // }
+        public function getUserByID($userId)
+        {
+            $this->$query = "select * from users where userId=:userid";
+            $statement = $this->conn->prepare($this->$query);
+            $statement->bindParam(":userid", $userId);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+        public function deleteUser($userId)
+        {
+            $this->query = "delete from users where userId=:userid";
+            $statement = $this->conn->prepare($this->query);
+            $statement->bindParam(":userid", $userId);
+            $statement->execute();
+        }
+
+        public function editUser(\SimpleUser $user, $userId)
+        {
+            $this->$query = "update users set name=:name, email=:email where userId=:userid";
+            //var_dump($user);
+            $statement = $this->conn->prepare($this->$query);
+            $name = $user->getName();
+            $email = $user->getEmail();
+            $statement->bindParam(":name", $name);
+            $statement->bindParam(":email", $email);
+            $statement->bindParam(":userid", $userId);
+            $statement->execute();
+            $statement = $statement->fetch();
+            return $statement;
+        }
+
+        //function update user
     }
 ?>

@@ -1,11 +1,12 @@
 <?php
 
-    class DatabasePDOConfiguration{
+    class DatabasePDOConfiguration
+    {
         private $connection;
 
         private $host = "localhost";
         private $username = "root";
-        private $dbName = "checkinDb";
+        private $dbName = "checkindb";
         private $password = "";
 
         private function createConnection()
