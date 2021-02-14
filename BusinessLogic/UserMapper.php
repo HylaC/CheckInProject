@@ -25,8 +25,8 @@
     
         public function insertUser($user)
         {
-            $query = "INSERT INTO users (name, email, password, role) VALUES (:name, :email, :password, :role)";
-            $statement = $this->conn->prepare($query);
+            $this->$query = "INSERT INTO users (name, email, password, role) VALUES (:name, :email, :password, :role)";
+            $statement = $this->conn->prepare($this->$query);
 
             $name = $user->getName();
             $email = $user->getEmail();

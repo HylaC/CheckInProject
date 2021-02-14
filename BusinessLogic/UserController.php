@@ -6,9 +6,14 @@
 
     session_start(); //me fillu me rujt sesionin
 
-    if(isset($_POST['submitted'])) {
-        $obj = new SignInController($_POST);
-        $obj->verify();
+    if(isset($_POST['signin-submitted'])) {
+        $signin = new SignInController($_POST);
+        $signin->verify();
+    }else if(isset($_POST['signup-submitted'])){
+        $signup = new SignUpController($_POST);
+        $signup->signupUser();
+    }else{
+        return header("Location: ../Index.php");
     }
     
     class SignInController{
@@ -70,40 +75,38 @@
 
     class SignUpController{
 
-        // //Verify Sign In form
-        // public function verify(){
- 
-        //     $email = $this->formData['email'];
-        //     $password = $this->formData['password'];
-              
-        //     if($this->regexValidation($email, $password)) 
-        //     {
-        //         if($this->verifySignIn($email, $password))
-        //         {
-        //             return header('Location: ../Home.php');
-        //         }else{
-        //            return header("Location: ../Index.php");
-        //         }
-        //     }else{
-        //         return header("Location: ../Index.php");
-        //     }
-        // }
-
         private $formData;
         
         function __construct($formData){
             $this->formData = $formData;
         }
 
-        private function regexValidation($email, $password){
-            //return true;
-            // $namePattern = '^[A-Za-z\s]+$';
-            // $emailPattern = '^[A-Za-z\d\._]+@[A-Za-z\d\._]+\.[A-Za-z\d]{3,}+$';
-            // $passwordPattern = '^[a-zA-Z0-9!@#$%^&*]{6,16}$';
-
+        //Verify Sign In form
+        public function signupUser(){
+            
             $name = $this->formData['name'];
             $email = $this->formData['email'];
             $password = $this->formData['password'];
+        
+              
+            if($this->regexValidation($name, $email, $password)) 
+            {
+                if($this->registerUser($name, $email, $password))
+                {
+                    return header('Location: ../Index.php');
+                }else{
+                    return header("Location: ../Signup.php");
+                }
+            }else{
+                return header("Location: ../Index.php");
+            }
+        }
+
+        private function regexValidation($name, $email, $password){
+
+            // $name = $this->formData['name'];
+            // $email = $this->formData['email'];
+            // $password = $this->formData['password'];
 
             //metoda preg_match bene vertetimin e RegEx-it
             if(preg_match("/^[A-Za-z\s]+$/", $name) && preg_match("/^[A-Za-z\d\._]+@[A-Za-z\d\._]+\.[A-Za-z\d]{3,}+$/", $email) && preg_match("/^[a-zA-Z0-9!@#$%^&*]{6,16}$/", $password)){
@@ -111,6 +114,13 @@
             }else{
                 return false;
             }
+        }
+
+        public function registerUser($name, $email, $password){
+            $user = new SimpleUser($this->name, $this->email, $this->password, 0);
+            //ketu thirre UserMapper me metoden insert
+            $mapper = new UserMapper();
+            $mapper->insertUser($user);
         }
     }
 ?>
