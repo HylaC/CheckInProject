@@ -11,11 +11,9 @@ function validate(number){
             document.getElementById("emailError").innerHTML ="";
             document.getElementById("passError").style.display = "block";
             return false;
-        }else{
-            alert('You\'re Successfully logged in.');
-            return true;
         }
-    }else if(number === 1){
+    }
+    else if(number === 1){
         //Sign Up form
         if(inputList[0].value === ""){
             document.getElementById("nameError").style.display = "block";
@@ -33,7 +31,8 @@ function validate(number){
             alert('You\'re Successfully registered.');
             return true;
         }
-    }else if(number === 2){
+    }
+    else if(number === 2){
         //Contact form
         if(inputList[0].value === ""){
             document.getElementById("nameError").style.display = "block";

@@ -1,6 +1,7 @@
 <?php
     include_once "DataBaseConfig.php";
     include_once "SimpleUserClass.php";
+    include_once "AdminUserClass.php";
 
     class UserMapper extends DatabasePDOConfiguration
     {
@@ -25,8 +26,8 @@
     
         public function insertUser(\SimpleUser $user)
         {
-            $this->$query = "insert into users (name, email, password, role) values (:name, :email, :password, :role)";
-            $statement = $this->conn->prepare($this->$query);
+            $query = "insert into users (name, email, password, role) values (:name, :email, :password, :role)";
+            $statement = $this->conn->prepare($query);
 
             $name = $user->getName();
             $email = $user->getEmail();
@@ -50,7 +51,8 @@
             $this->$query = "select * from users";
             $statement = $this->conn->prepare($this->$query);
             $statement->execute();
-            return $users = $statement->fetchAll();
+            $users = $statement->fetchAll();
+            return $users;
         }
 
         public function getUserByID($userId)

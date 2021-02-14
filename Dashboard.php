@@ -1,3 +1,14 @@
+<?php
+include_once 'BusinessLogic/DataBaseConfig.php';
+include_once 'BusinessLogic/UserMapper.php';
+if (isset($_SESSION["role"]) && $_SESSION['role'] == '1') {
+    $mapper =  new UserMapper();
+    $userList = $mapper->getAllUsers();
+} else {
+    header("Location: ../Home.php");
+}
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,17 +31,30 @@
                         <th>Managment</th>
                     </tr>
 
+                    <?php foreach ($userList as $user) {?>
                     <tr>
-                        <td>name</td>
-                        <td>email</td>
-                        <td>role</td>
+                        <td><?php echo $user['name'] ?></td>
+                        <td><?php echo $user['email'] ?></td>
+                        <td><?php if($user['role'] == 1){
+                                echo 'Admin';}
+                            else{
+                                echo 'User';
+                            } ?>
+                        </td>
                         <td>
-                            <form action="BusinessLogic/UserController.php" class="dashboard-form" method="POST">
-                                    <input type="hidden" name="id" placeholder="Password" value="id"/>
-                                    <button type="submit" class="dashboard-button" name="submitted"></button>
+                            <form action="" class="dashboard-form" method="POST">
+                                <input type="hidden" name="id" placeholder="Password" value="<?php echo $user['userid']?>"/>
+                                <button type="submit" class="dashboard-button" name="submitted">
+                                    <?php if($user['role'] == 1){
+                                        echo 'Remove Admin';}
+                                    else{
+                                        echo 'Make Admin';
+                                    } ?>
+                                </button>
                             </form>
                         </td>
                     </tr>
+                    <?php } ?>
                 </table>
             </div>
         <?php include 'Footer.php'?>

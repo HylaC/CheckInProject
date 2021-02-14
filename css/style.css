@@ -155,6 +155,97 @@ header a {
 	transform: translateX(100%);
 }
 
+/* dashboard page */
+.dashboardpage{
+    background-color: #171616;
+    padding: 70px 0;
+  }
+  
+  .dashboardpage table tr th ,table tr td {
+    color: #ffffff;
+  }
+  
+  .dashboardpage table{
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    background-color: rgb(12, 11, 11);
+  }
+  
+  .dashboardpage table, th, td {
+    border: 1px solid rgb(245, 217, 96);
+    padding: 20px;
+  }
+  
+  
+  .dashboard-form{
+    font-family: sans-serif;
+  }
+  
+  .dashboard-button{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border-color: rgb(245, 217, 96);
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+/* rooms page */
+
+.rooms{
+    padding: 40px;
+    color: white;
+    background-color: #171616;
+  }
+  
+  .wrapper {
+    text-align: center;
+  }
+  
+  .roomform{
+      color:#fff;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 50px;
+      height: 100%;
+      text-align: center;
+    }
+    .roomform input {
+      margin: auto;
+      border-radius: 20px;
+      background-color: #eee;
+      padding: 12px 15px;
+    }
+    .roomform label{
+      display: block;
+    }
+    .roomform input[type="text"], .roomforms textarea{
+      border-radius: 20px;
+      padding: 8px;
+      width: 60%;
+      align-content: center;
+    }
+    
+    .rooms table tr th ,table tr td {
+      color: #ffffff;
+    }
+    
+    .rooms table{
+      width: 80%;
+      height: 80%;
+      margin: 50px auto;
+      background-color: rgb(12, 11, 11);
+    }
+    
+    .rooms table, th, td {
+      border: 1px solid rgb(245, 217, 96);
+      padding: 20px;
+    }
+
 /*Error message design */
 .forms #emailError,
 .forms #passError, 
@@ -185,7 +276,7 @@ footer {
   margin-bottom: 0;
 }
 
-/* index after logging in */
+/* home page */
 .welcome {
     background-color: #171616;
     height: 100%;
@@ -246,15 +337,3 @@ footer {
     opacity: 0; /*elementin nuk shihet*/
     transition: all 0.5s ease-in-out;
 } 
-
-/*Responsivity*/
-/* @media only screen and (max-width:400px){
-    header{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header li{
-        padding: 0;
-    }
-} */

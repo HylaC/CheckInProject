@@ -3,14 +3,14 @@ require 'BusinessLogic/RoomController.php';
 
     $rooms = new RoomController;
     
-    if(!$_SESSION['isadmin']){
+    if(!$_SESSION['role']){
         header('Location: ./Home.php');
     }
 
-    if(isset($_GET['submitted'])) {
+    if(isset($_GET['edit'])) {
         $rooms -> editRooms($_GET);
     }
-    if(isset($_GET['submitted'])) {
+    if(isset($_GET['delete'])) {
 
         if(isset($_GET['room_id'])) {
             $room_id = $_GET['room_id'];

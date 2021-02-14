@@ -26,12 +26,6 @@
             $this->formData = $formData;  
         }
 
-        // // qetu munet me kon te L:
-        // public function __construct()
-        // {
-        //     $this->formData = new DatabasePDOConfiguration;
-        // }
-
         //Verify Sign In form
         public function verify(){
  
@@ -59,7 +53,6 @@
         }
 
         private function verifySignIn($email, $password){
-            return true;
             $mapper = new UserMapper();
             
             $user = $mapper->getUserByEmail($email);
@@ -68,7 +61,7 @@
 
             if ($user == null || count($user) == 0) 
                return false;
-            else if ($passwordEncrypted == $user['password']) {
+            if ($passwordEncrypted == $user['password']) {
                 if ($user['role'] == 1) {
                     $person = new AdminUser($user['userid'], $user['name'],$user['email'], $user['password'], $user['role']);
                     $person->setSession();
@@ -83,19 +76,19 @@
 
     class SignUpController{
 
-        private $formData;
+        private $name = "";
+        private $email = "";
+        private $password = "";
         
-        public function __construct($formData){
-            $this->formData = $formData;
+        public function __construct($formData)
+        {
+            $this->name = $formData['name'];
+            $this->email = $formData['email'];
+            $this->password = $formData['password'];
         }
 
         //Verify Sign Up form
         public function signupUser(){
-            
-            $name = $this->formData['name'];
-            $email = $this->formData['email'];
-            $password = $this->formData['password'];
-        
               
             if($this->regexValidation($name, $email, $password)) 
             {
@@ -111,7 +104,6 @@
         }
 
         private function regexValidation($name, $email, $password){
-
             //metoda preg_match bene vertetimin e RegEx-it
             if(preg_match("/^[A-Za-z\s]+$/", $name) && preg_match("/^[A-Za-z\d\._]+@[A-Za-z\d\._]+\.[A-Za-z\d]{3,}+$/", $email) && preg_match("/^[a-zA-Z0-9!@#$%^&*]{6,16}$/", $password)){
                 return true;

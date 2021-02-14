@@ -5,6 +5,7 @@ session_start();
     <div class="container">
         <nav>
             <ul>
+                <li><a href="Home.php">HOME</a></li>
                 <?php
                     if(isset($_SESSION["role"]) && $_SESSION['role'] == '1') {
                 ?>
@@ -17,12 +18,8 @@ session_start();
                     <li><a href="Reservations.php">RESERVATIONS</a></li>
                 <?php } ?>
                     
-                <li><a href="Home.php">HOME</a></li>
-                <li><a href="Dashboard.php">Dashboard</a></li>
-                <li><a href="Rooms.php">ROOMS</a></li>
                 <li><a href="Contact.php">CONTACT</a></li>
                 <li><a href="Restaurants.php">RESTAURANTS</a></li>
-                <li><a href="Reservations.php">RESERVATIONS</a></li>
                 <li><a href="About.php">ABOUT</a></li>
                 <li><a href="SignOut.php">SIGN OUT</a></li>
 
