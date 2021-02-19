@@ -1,12 +1,12 @@
 <?php
-session_start();
-require 'BusinessLogic/RoomController.php';
+    session_start();
+    require 'BusinessLogic/RoomController.php';
 
-$rooms = new RoomController;
+    $rooms = new RoomController;
 
-if($_SESSION['role']!=0){
-    header('Location: ./Home.php');
-}
+    if($_SESSION['role']!=0){
+        header('Location: ./Home.php');
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,14 +14,15 @@ if($_SESSION['role']!=0){
         <title>Reservations</title>
 
         <link rel="stylesheet" href="css/style.css"/>
-<style>
+        
+        <style>
+            select{
+                border-radius: 20px;
+                padding: 8px;
+                width: 100%;
+            }
+        </style>
 
- select{
-    border-radius: 20px;
-    padding: 8px;
-    width: 100%;
-}
-    </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>

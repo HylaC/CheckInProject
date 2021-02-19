@@ -1,19 +1,17 @@
 <?php
-session_start();
-require 'BusinessLogic/UserMapper.php';
-$users = new UserMapper();
- 
-if($_SESSION['role']!=1){
-    header('Location: Index.php');
-}
+    session_start();
+    require 'BusinessLogic/UserMapper.php';
+    $users = new UserMapper();
+    
+    if($_SESSION['role']!=1){
+        header('Location: Index.php');
+    }
 
-if(isset($_POST['submitted'])) {
-    $users->makeadmin($_POST);
-}
+    if(isset($_POST['submitted'])) {
+        $users->makeadmin($_POST);
+    }
 
-$userList = $users->getAllUsers();
-
-
+    $userList = $users->getAllUsers();
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,44 +19,6 @@ $userList = $users->getAllUsers();
         <title>Dashboard</title>
 
         <link rel="stylesheet" href="css/style.css"/>
-        <style>
-            .dashboardpage{
-    background-color: #171616;
-    padding: 70px 0;
-  }
-  
-  .dashboardpage table tr th ,table tr td {
-    color: #ffffff;
-  }
-  
-  .dashboardpage table{
-    width: 80%;
-    height: 80%;
-    margin: 0 auto;
-    background-color: rgb(12, 11, 11);
-  }
-  
-  .dashboardpage table, th, td {
-    border: 1px solid rgb(245, 217, 96);
-    padding: 20px;
-  }
-  
-  
-  .dashboard-form{
-    font-family: sans-serif;
-  }
-  
-  .dashboard-button{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    border-color: rgb(245, 217, 96);
-    background-color: transparent;
-    color: white;
-    padding: 10px;
-    margin: 10px 0;
-  }
-            </style>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

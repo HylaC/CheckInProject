@@ -122,7 +122,7 @@ document.getElementById('password').addEventListener('keyup', function(event){
     }
 });
 
-// SLIDER-i
+// Slider-i
 var divElements = document.getElementsByClassName('slider-content');
 var sliderIndex = 0;
 

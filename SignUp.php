@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register</title>
+        <title>Sign Up</title>
 
         <link rel="stylesheet" href="css/style.css"/>
 
@@ -31,10 +31,10 @@
                                     <div><input class="input input-field-register" id="password" name="password" type="password" placeholder="Password"/></div>
                                     <p id="passError">Please fill in your password!</p><br>
                                     <div class="wrapper">
-                                        <button type="submit" id="submit" class="pagebutton input" name="signup-submitted" onclick="return validate(1)">Sign up</button>
+                                        <button type="submit" id="submit" class="pagebutton input" name="signup-submitted" onclick="return validate(1)">Sign Up</button>
                                     </div><br>
                                     <p>Already have an account! Click
-                                        <a href="Index.php" target="_blank" style="color:gold;">HERE</a> to sign in.
+                                        <a href="Index.php" style="color:gold;">HERE</a> to sign in.
                                     </p>
                                 </form>
                             </div>
