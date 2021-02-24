@@ -1,8 +1,12 @@
 <?php
     session_start();
-    require 'BusinessLogic/RoomController.php';
+    require_once 'BusinessLogic/RoomController.php';
 
     $rooms = new RoomController;
+
+    if(isset($_POST['submitted'])) {
+        $rooms -> addReservation($_POST);
+    }
 
     if($_SESSION['role']!=0){
         header('Location: ./Home.php');
@@ -19,7 +23,7 @@
             select{
                 border-radius: 20px;
                 padding: 8px;
-                width: 100%;
+                width: 15%;
             }
         </style>
 
@@ -30,20 +34,23 @@
         <?php include 'Header.php'; ?>
         <main>
             <div class="reservations">
-                <br/>
-                <select class="select" form="reservationform">
-                    <?php foreach ($rooms->seeRooms() as $room): ?>
-                        <option value="<?= $room['name']; ?>"><?= $room['name']; ?></option>
-                    <?php endforeach; ?>
-                </select><br>
-                <select class="select" form="reservationform">
-                    <?php foreach ($rooms->seeRooms() as $room): ?>
-                        <option value="<?= $room['size']; ?>"><?= $room['size']; ?></option>
-                    <?php endforeach; ?>
-                </select><br>
-                <form class="forms" action="reservations.php" id="reservationform">
-                    <input type="date"/><br>
-                    <input type="date"/><br>
+                <div style="text-align: center;">
+                    <br/>
+                    <select class="select" form="reservationform" style="margin-bottom: 10px;">
+                        <?php foreach ($rooms->seeRooms() as $room): ?>
+                            <option value="<?= $room['name']; ?>"><?= $room['name']; ?></option>
+                        <?php endforeach; ?>
+                    </select><br>
+                    <select class="select" form="reservationform" style="margin-bottom: 10px;">
+                        <?php foreach ($rooms->seeRooms() as $room): ?>
+                            <option value="<?= $room['size']; ?>"><?= $room['size']; ?></option>
+                        <?php endforeach; ?>
+                    </select><br>
+                </div>
+                <form class="roomform" method="POST" action="" id="reservationform">
+                    <input type="date" name="fromdate"/><br>
+                    <input type="date" name="until"/><br>
+                    <div class="wrapper"><button type="submit" class="pagebutton" name="submitted">Add Reservation</button></div>
                 </form>
             </div>
         </main>

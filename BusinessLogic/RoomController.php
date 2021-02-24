@@ -54,5 +54,29 @@
         
                 return header('Location: ./Rooms.php');
         }
+
+        //Reservations 
+        public function addReservation($request){
+            $query = $this->conn->prepare('INSERT INTO reservations (fromdate, until) VALUES (:fromdate, :until)');
+            $query->bindParam(':fromdate', $request['fromdate']);
+            $query->bindParam(':until', $request['until']);
+            $query->execute();
+    
+            return header('Location: ./Reservations.php');
+        }
+
+        public function seeReservations()
+        {
+            $query = $this->conn->query('SELECT * FROM reservations');
+
+            return $query->fetchAll();
+        }
+
+        public function deleteReservation($reservation_id){
+            $query = $this->conn->prepare('DELETE FROM reservations WHERE reservation_id = :reservation_id');
+            $query->execute(['reservation_id' => $reservation_id]);
+    
+            return header('Location: ./Dashboard.php');
+        }
     }
 ?>

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require 'BusinessLogic/RoomController.php';
     require 'BusinessLogic/UserMapper.php';
     $users = new UserMapper();
     
@@ -12,6 +13,16 @@
     }
 
     $userList = $users->getAllUsers();
+
+    $rooms= new RoomController();
+    $reservationList = $rooms->seeReservations();
+
+    if(isset($_GET['delete'])) {
+        if(isset($_GET['reservation_id'])) {
+          $reservation_id = $_GET['reservation_id'];
+        }
+        $rooms -> deleteReservation($reservation_id);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,6 +67,29 @@
                                         echo 'Make Admin';
                                     } ?>
                                 </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </table><br>
+
+                <table>
+                    <tr>
+                        <th>Room Name</th>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>Managment</th>
+                    </tr>
+
+                    <?php foreach ($reservationList as $rooms) {?>
+                    <tr>
+                        <td><?php echo 'Room name'; ?></td>
+                        <td><?php echo $rooms['fromdate'] ?></td>
+                        <td><?php echo $rooms['until'] ?></td>
+                        <td> 
+                            <form action="" method="GET">
+                                <input type="hidden" name="reservation_id"  value="<?= $rooms['reservation_id']?>"  />
+                                <button type="submit" class="dashboard-button" name="delete">Delete</button>
                             </form>
                         </td>
                     </tr>
