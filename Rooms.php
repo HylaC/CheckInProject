@@ -47,11 +47,11 @@
                         <td><?php echo $rooms['name'] ?></td>
                         <td><?php echo $rooms['size'] ?></td>
                         <td>
-                            <form action="editroom.php" method="GET">
+                            <form action="Editroom.php" method="GET">
                                 <input type="hidden" name="room_id"  value="<?= $rooms['room_id']?>"  />
                                 <button type="submit" class="dashboard-button" name="edit">Edit</button>
                             </form>
-                            <form action="deleteroom.php" method="GET">
+                            <form action="Deleteroom.php" method="GET">
                                 <input type="hidden" name="room_id"  value="<?= $rooms['room_id']?>"  />
                                 <button type="submit" class="dashboard-button" name="delete">Delete</button>
                             </form>

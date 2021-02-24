@@ -25,7 +25,7 @@
                     <div class="rightside">
                         <div class="contact">
                             <p class="fillform">Ask us anything by filling the form below...</p>
-                            <form class="forms" role="form">
+                            <form class="forms" role="form" method="POST" enctype="multipart/form-data">
                                 <div><input class="input input-field-contact" type="text" name="firstname" placeholder="First Name"></div>
                                 <p id="nameError">Please fill in your first name!</p>
                                 <div><input class="input input-field-contact" type="text" name="lastname" placeholder="Last Name"></div>

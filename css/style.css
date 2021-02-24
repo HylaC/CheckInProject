@@ -59,6 +59,37 @@ header a {
     box-sizing: border-box;
 }
 
+/*Error message design */
+.forms #emailError,
+.forms #passError, 
+.forms #nameError,
+.forms #lastNameError,
+.forms #messageError{
+    width: 100%;
+    font-size: 15px;
+    color: #C62828;
+    display: none;
+}
+
+ /*Slideri*/
+.slider {
+    position: relative;
+    font-size: 60px;
+    color: white;
+}
+
+    /*active dhe non-active img per slider */
+.active{
+    opacity: 1; /*elementin mundet me u pa i plote*/
+    transition: all 0.5s ease-in-out;
+}
+
+.not-active{
+    position: absolute;
+    opacity: 0; /*elementin nuk shihet*/
+    transition: all 0.5s ease-in-out;
+} 
+
 /* class button submit */
 .button{
     background-color: #aa2e20;
@@ -149,15 +180,7 @@ header a {
 }
 
 /* footer */
-.footer {
-  border: 3px;
-  padding: 15px 0;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-}
-
-footer {
+.footer1 {
   background-color: #222;
   color: #fff;
   font-size: 14px;
@@ -165,10 +188,6 @@ footer {
   position: absolute;
   width: 100%;
   bottom: 0;
-}
-
-.footer p {
-  margin-bottom: 0;
 }
 
 /* about page */
@@ -308,37 +327,6 @@ footer {
       padding: 20px;
     }
 
-/*Error message design */
-.forms #emailError,
-.forms #passError, 
-.forms #nameError,
-.forms #lastNameError,
-.forms #messageError{
-    width: 100%;
-    font-size: 15px;
-    color: #C62828;
-    display: none;
-}
-
- /*Slideri*/
-.slider {
-    position: relative;
-    font-size: 60px;
-    color: white;
-}
-
-    /*active dhe non-active img per slider */
-.active{
-    opacity: 1; /*elementin mundet me u pa i plote*/
-    transition: all 0.5s ease-in-out;
-}
-
-.not-active{
-    position: absolute;
-    opacity: 0; /*elementin nuk shihet*/
-    transition: all 0.5s ease-in-out;
-} 
-
 /*content*/
 .content-wrapper {
   display: flex;
@@ -359,6 +347,3 @@ footer {
   align-items: center;
   justify-content: center;
 }
-
-/* .flex-wrapper {
-} */

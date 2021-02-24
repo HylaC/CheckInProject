@@ -83,7 +83,7 @@
 
                     <?php foreach ($reservationList as $rooms) {?>
                     <tr>
-                        <td><?php echo 'Room name'; ?></td>
+                        <td><?php echo $rooms['name'] ?></td>
                         <td><?php echo $rooms['fromdate'] ?></td>
                         <td><?php echo $rooms['until'] ?></td>
                         <td> 
@@ -100,4 +100,3 @@
         <?php include 'Footer.php'?>
     </body>
 </html>  
-

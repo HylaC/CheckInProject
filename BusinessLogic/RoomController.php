@@ -26,7 +26,7 @@
             return header('Location: ./Rooms.php');
         }
 
-        public function editRooms($room_id){//e popullon formen me tdhana prej databazes
+        public function editRooms($room_id){
             $query = $this->conn->prepare('SELECT * FROM rooms WHERE room_id = :room_id');
             $query->bindParam(':name', $request['name']);
             $query->bindParam(':size', $request['size']);
@@ -67,7 +67,7 @@
 
         public function seeReservations()
         {
-            $query = $this->conn->query('SELECT * FROM reservations');
+            $query = $this->conn->query('SELECT s.room_id, s.name, r.reservation_id, r.fromdate, r.until  FROM reservations r inner join rooms s on r.room_id = s.room_id');
 
             return $query->fetchAll();
         }

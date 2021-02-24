@@ -5,9 +5,6 @@
 
         <link rel="stylesheet" href="css/style.css"/>
 
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-
     </head>
     <body>
         <?php include 'Header.php'; ?>
@@ -19,7 +16,7 @@
                 <div class="rightside">
                     <div class="container" id="container">
                         <div class="form-container sign-in-container">
-                            <form action="BusinessLogic/UserController.php" name="login" class="forms" method="POST"> <!--action -> Linku per php file-in te cilit ia dergojme (redirect) formen pasi e behet submit.-->
+                            <form action="BusinessLogic/UserController.php" name="login" class="forms" method="POST"> <!--action -> Linku per php file-in te cilit ia dergojme (redirect) formen pasi behet submit.-->
                                 <h1>Sign In</h1><br>
                                 <div><input class="input input-field-login" type="text" name="email" placeholder="Email address"/><br></div>
                                 <p id="emailError">Please fill in your email address!</p>

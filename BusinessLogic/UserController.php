@@ -89,17 +89,12 @@
             $email = $this->formData['email'];
             $password = $this->formData['password'];
              
-            // if($this->regexValidation($name, $email, $password)) 
-            // {
-                if($this->registerUser($name, $email, $password))
-                {
-                    return header('Location: ../Index.php');
-                }else{
-                    return header("Location: ../Signup.php");
-                }
-            // }else{
-            //     return header("Location: ../Index.php");
-            // }
+            if($this->registerUser($name, $email, $password))
+            {
+                return header('Location: ../Index.php');
+            }else{
+                return header("Location: ../Signup.php");
+            }
         }
 
         private function regexValidation($name, $email, $password){
